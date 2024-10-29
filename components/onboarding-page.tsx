@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet, Image, ImageSourcePropType } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React from "react";
+import CustomText from "./custom-text";
 
 interface OnboardingPageProps {
-  // source: string;
   primaryText: string;
   secondaryText?: string;
 }
@@ -10,12 +10,16 @@ interface OnboardingPageProps {
 const OnboardingPage = ({ primaryText, secondaryText }: OnboardingPageProps) => {
   return (
     <View style={styles.container}>
-      {/* <Image
-        style={styles.image}
-        src={"./../assets/images/onboarding-page1-image.png"}
-      /> */}
-      <Text style={styles.primaryText}>{primaryText}</Text>
-      {secondaryText && <Text style={styles.secondaryText}>{secondaryText}</Text>}
+      <CustomText
+        style={styles.primaryText}
+        text={primaryText}
+      />
+      {secondaryText && (
+        <CustomText
+          style={styles.secondaryText}
+          text={secondaryText}
+        />
+      )}
     </View>
   );
 };
@@ -28,10 +32,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     marginTop: 40,
   },
-
   primaryText: {
+    fontFamily: "Jakarta-Medium",
     fontSize: 32,
-    // fontWeight: "600",
     textAlign: "center",
   },
   secondaryText: {

@@ -1,5 +1,6 @@
-import { Text, StyleSheet, TouchableOpacity, GestureResponderEvent } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
+import CustomText from "./custom-text";
 
 interface CustomButtonProps {
   text: string;
@@ -12,7 +13,10 @@ const CustomButton = ({ text, onPress, isPrimary }: CustomButtonProps) => {
     <TouchableOpacity
       onPress={onPress}
       style={[styles.container, isPrimary && styles.primaryBtn]}>
-      <Text style={[styles.text, !isPrimary && styles.nonPrimaryBtn]}>{text}</Text>
+      <CustomText
+        style={[styles.text, !isPrimary && styles.nonPrimaryBtn]}
+        text={text}
+      />
     </TouchableOpacity>
   );
 };
@@ -35,8 +39,7 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
     fontSize: 18,
-    // fontWeight: "600",
-    fontWeight: "bold",
+    fontFamily: "Jakarta-SemiBold",
   },
 });
 
