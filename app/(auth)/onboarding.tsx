@@ -1,23 +1,30 @@
-import { Text, SafeAreaView, TouchableOpacity, StyleSheet } from "react-native";
+import { Text, SafeAreaView, TouchableOpacity, StyleSheet, Button } from "react-native";
 import { router } from "expo-router";
 import Swiper from "react-native-swiper";
 import SwiperDot from "@/components/swiper-dot";
 import OnboardingPage from "@/components/onboarding-page";
 import { onboardingData } from "@/constants/onboarding-data";
+import CustomButton from "@/components/custom-button";
+import { useRef, useState } from "react";
 
 const Onboarding = () => {
+  const swiperRef = useRef<Swiper>(null);
+  const [swiperInd, setSwiperInd] = useState(0);
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
         style={styles.skipBtnContainer}
-        onPress={() => router.navigate("/(auth)/sign-in")}>
+        onPress={() => router.navigate("/(auth)/sign-up")}>
         <Text style={styles.skipBtnText}>Skip</Text>
       </TouchableOpacity>
       <Swiper
+        ref={swiperRef}
         dot={<SwiperDot isActive={false} />}
         activeDot={<SwiperDot isActive={true} />}
-        loop={false}>
-        {onboardingData.map((data, ind) => (
+        loop={false}
+        onIndexChanged={(ind) => setSwiperInd(ind)}>
+        {onboardingData.map((data) => (
           <OnboardingPage
             key={data.primaryText}
             primaryText={data.primaryText}
@@ -25,6 +32,15 @@ const Onboarding = () => {
           />
         ))}
       </Swiper>
+      <CustomButton
+        text={swiperInd === onboardingData.length - 1 ? "Get started" : "Next"}
+        onPress={() =>
+          swiperInd === onboardingData.length - 1
+            ? router.navigate("/(auth)/sign-up")
+            : swiperRef.current?.scrollBy(1)
+        }
+        isPrimary={true}
+      />
     </SafeAreaView>
   );
 };
@@ -39,7 +55,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   skipBtnText: {
-    fontWeight: 600,
+    // fontWeight: "600",
   },
 });
 

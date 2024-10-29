@@ -7,7 +7,7 @@ const SwiperDot = ({ isActive }: { isActive: boolean }) => {
       style={{
         height: 4,
         width: 35,
-        backgroundColor: isActive ? "blue" : "gray",
+        backgroundColor: isActive ? "#FFB38E" : "lightgray",
         marginHorizontal: 2,
       }}
     />

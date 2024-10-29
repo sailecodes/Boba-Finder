@@ -3,7 +3,7 @@ import React from "react";
 
 interface OnboardingPageProps {
   primaryText: string;
-  secondaryText: string;
+  secondaryText?: string;
 }
 
 const OnboardingPage = ({ primaryText, secondaryText }: OnboardingPageProps) => {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   primaryText: {
     fontSize: 32,
-    fontWeight: 600,
+    // fontWeight: "600",
     textAlign: "center",
   },
   secondaryText: {
