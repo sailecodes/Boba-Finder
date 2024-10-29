@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, TouchableOpacity, StyleSheet, Button } from "react-native";
+import { Text, SafeAreaView, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { router } from "expo-router";
 import Swiper from "react-native-swiper";
 import SwiperDot from "@/components/swiper-dot";
@@ -18,6 +18,10 @@ const Onboarding = () => {
         onPress={() => router.navigate("/(auth)/sign-up")}>
         <Text style={styles.skipBtnText}>Skip</Text>
       </TouchableOpacity>
+      <Image
+        style={styles.image}
+        source={require("../../assets/images/onboarding-page1-image.png")}
+      />
       <Swiper
         ref={swiperRef}
         dot={<SwiperDot isActive={false} />}
@@ -47,7 +51,15 @@ const Onboarding = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
+    flex: 1,
+  },
+  image: {
+    position: "absolute",
+    top: "20%",
+    left: "3%",
+    width: "100%",
+    height: 250,
+    resizeMode: "contain",
   },
   skipBtnContainer: {
     alignSelf: "flex-end",

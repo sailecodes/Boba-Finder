@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image, ImageSourcePropType } from "react-native";
 import React from "react";
 
 interface OnboardingPageProps {
+  // source: string;
   primaryText: string;
   secondaryText?: string;
 }
@@ -9,6 +10,10 @@ interface OnboardingPageProps {
 const OnboardingPage = ({ primaryText, secondaryText }: OnboardingPageProps) => {
   return (
     <View style={styles.container}>
+      {/* <Image
+        style={styles.image}
+        src={"./../assets/images/onboarding-page1-image.png"}
+      /> */}
       <Text style={styles.primaryText}>{primaryText}</Text>
       {secondaryText && <Text style={styles.secondaryText}>{secondaryText}</Text>}
     </View>
@@ -21,8 +26,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 30,
-    marginBottom: 50,
+    marginTop: 40,
   },
+
   primaryText: {
     fontSize: 32,
     // fontWeight: "600",
