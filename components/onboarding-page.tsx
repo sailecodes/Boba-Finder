@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import React from "react";
 import CustomText from "./custom-text";
+import { colors } from "@/constants";
 
 interface OnboardingPageProps {
   primaryText: string;
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   secondaryText: {
-    color: "gray",
+    color: colors.gray,
     width: 340,
     fontSize: 18,
     textAlign: "center",

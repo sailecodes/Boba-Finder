@@ -7,6 +7,7 @@ import { onboardingData } from "@/constants/onboarding-data";
 import CustomButton from "@/components/custom-button";
 import { useRef, useState } from "react";
 import CustomText from "@/components/custom-text";
+import { colors } from "@/constants";
 
 const Onboarding = () => {
   const swiperRef = useRef<Swiper>(null);
@@ -52,7 +53,7 @@ const Onboarding = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: colors.white,
   },
   skipBtnContainer: {
     alignSelf: "flex-end",
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   skipBtnText: {
-    fontSize: 16,
+    fontSize: 14,
   },
 });
 
