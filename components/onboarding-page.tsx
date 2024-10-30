@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 30,
-    marginTop: 40,
+    marginBottom: 20,
   },
   primaryText: {
     fontFamily: "Jakarta-Medium",

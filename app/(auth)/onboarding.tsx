@@ -17,7 +17,10 @@ const Onboarding = () => {
       <TouchableOpacity
         style={styles.skipBtnContainer}
         onPress={() => router.navigate("/(auth)/sign-up")}>
-        <CustomText text={"Skip"} />
+        <CustomText
+          style={styles.skipBtnText}
+          text={"Skip"}
+        />
       </TouchableOpacity>
       <Swiper
         ref={swiperRef}
@@ -49,11 +52,15 @@ const Onboarding = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white",
   },
   skipBtnContainer: {
     alignSelf: "flex-end",
     paddingVertical: 10,
     paddingHorizontal: 15,
+  },
+  skipBtnText: {
+    fontSize: 16,
   },
 });
 

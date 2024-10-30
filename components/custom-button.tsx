@@ -1,20 +1,25 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { type TouchableOpacityProps, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import CustomText from "./custom-text";
 
-interface CustomButtonProps {
+type CustomButtonProps = TouchableOpacityProps & {
   text: string;
   onPress?: React.Dispatch<React.SetStateAction<any>>;
   isPrimary?: boolean;
-}
+};
 
-const CustomButton = ({ text, onPress, isPrimary }: CustomButtonProps) => {
+const CustomButton = ({ style, text, onPress, isPrimary }: CustomButtonProps) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.container, isPrimary && styles.primaryBtn]}>
+      style={[
+        style,
+        styles.container,
+        isPrimary && styles.primaryBtn,
+        !isPrimary && styles.nonPrimaryBtn,
+      ]}>
       <CustomText
-        style={[styles.text, !isPrimary && styles.nonPrimaryBtn]}
+        style={[styles.primaryText, !isPrimary && styles.nonPrimaryText]}
         text={text}
       />
     </TouchableOpacity>
@@ -34,12 +39,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFB38E",
   },
   nonPrimaryBtn: {
-    color: "black",
+    borderWidth: 1,
+    borderColor: "#ebebeb",
   },
-  text: {
+  primaryText: {
     color: "white",
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: "Jakarta-SemiBold",
+  },
+  nonPrimaryText: {
+    color: "black",
   },
 });
 
